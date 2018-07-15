@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+
 const Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -9,6 +10,10 @@ const Enemy = function() {
     this.x = 0;
     this.y = 0;
 };
+
+const bug1 = new Enemy();
+const allEnemies = [];
+allEnemies.push(bug1);
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
