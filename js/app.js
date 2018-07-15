@@ -9,6 +9,7 @@ const Enemy = function() {
     this.sprite = 'images/enemy-bug.png';
     this.x = 0;
     this.y = 0;
+    this.step = 101;
 };
 
 const bug1 = new Enemy();
@@ -21,6 +22,10 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+    if (this.x < this.step * 5) {
+        this.x += 200 * dt;
+    }
+    //else
 };
 
 // Draw the enemy on the screen, required method for game
