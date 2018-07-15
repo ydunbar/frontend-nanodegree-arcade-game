@@ -25,7 +25,9 @@ Enemy.prototype.update = function(dt) {
     if (this.x < this.step * 5) {
         this.x += 200 * dt;
     }
-    //else
+    else {
+        this.x = this.step * -1;
+    }
 };
 
 // Draw the enemy on the screen, required method for game
