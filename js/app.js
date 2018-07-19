@@ -39,7 +39,7 @@ class Hero {
         this.step = 101;
         this.jump = 83;
         this.x = this.step * 2;
-        this.y = (this.step * 4) -20;
+        this.y = (this.jump * 5) - 20;
         this.sprite = 'images/char-boy.png';
     }
     render() {
@@ -48,18 +48,26 @@ class Hero {
     handleInput(input) {
         switch(input) {
             case 'left':
-            this.x -= this.step;
+            if (this.x > 0) {
+                this.x -= this.step;
+            }
             break;
             case 'right':
-            this.x += this.step;
+            if (this.x < this.step * 4) { 
+                this.x += this.step;
+            }
             break;
             case 'up':
-            this.y -= this.jump;
+            if (this.y > 0) {
+                this.y -= this.jump
+            }
             break;
             case 'down':
-            this.y += this.jump;
+            if (this.y < this.jump * 4) {
+                this.y += this.jump;
+            }
+            break;
         }
-
     }
 }
 
