@@ -39,7 +39,7 @@ class Hero {
         this.step = 101;
         this.jump = 83;
         this.x = this.step * 2;
-        this.y = (this.jump * 5) - 20;
+        this.y = (this.jump * 4) + 55;
         this.sprite = 'images/char-boy.png';
     }
     render() {
@@ -67,6 +67,13 @@ class Hero {
                 this.y += this.jump;
             }
             break;
+        }
+    }
+    update() {
+        for (let enemy of allEnemies) {
+            if (this.y === enemy.y && (enemy.x + enemy.step - 25 > this.x && enemy.x < this.x + this.step - 25)) {
+                alert ('Collide!');
+            }
         }
     }
 }
