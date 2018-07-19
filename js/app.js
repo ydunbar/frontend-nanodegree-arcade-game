@@ -46,6 +46,19 @@ class Hero {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     handleInput(input) {
+        switch(input) {
+            case 'left':
+            this.x -= this.step;
+            break;
+            case 'right':
+            this.x += this.step;
+            break;
+            case 'up':
+            this.y -= this.jump;
+            break;
+            case 'down':
+            this.y += this.jump;
+        }
 
     }
 }
