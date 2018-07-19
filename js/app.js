@@ -37,12 +37,16 @@ Enemy.prototype.render = function() {
 class Hero {
     constructor() {
         this.step = 101;
+        this.jump = 83;
         this.x = this.step * 2;
-        this.y = this.step * 4;
+        this.y = (this.step * 4) -20;
         this.sprite = 'images/char-boy.png';
     }
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }
+    handleInput(input) {
+
     }
 }
 
@@ -65,5 +69,5 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    //player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[e.keyCode]);
 });
