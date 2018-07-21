@@ -160,7 +160,8 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        Hero.x = Hero.step * 2;
+        Hero.y = (Hero.jump * 4) + 55;
     }
 
     /* Go ahead and load all of the images we know we're going to need to

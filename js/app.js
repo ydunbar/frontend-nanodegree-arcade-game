@@ -72,10 +72,16 @@ class Hero {
     update() {
         for (let enemy of allEnemies) {
             if (this.y === enemy.y && (enemy.x + enemy.step - 25 > this.x && enemy.x < this.x + this.step - 25)) {
-                alert ('Collide!');
+                reset();
             }
         }
     }
+}
+
+function reset() {
+    alert('You Lost!');
+    player.x = player.step * 2;
+    player.y = (player.jump * 4) + 55;
 }
 
 // Now instantiate your objects.
@@ -86,6 +92,8 @@ const bug1 = new Enemy();
 const allEnemies = [];
 allEnemies.push(bug1);
 const player = new Hero();
+
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
