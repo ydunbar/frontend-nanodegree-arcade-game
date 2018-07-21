@@ -18,6 +18,8 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+
+    //set boundary and loop
     if (this.x < this.step * 5) {
         this.x += 200 * dt;
     }
@@ -46,6 +48,7 @@ class Hero {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     handleInput(input) {
+        //increment moves within boundary
         switch(input) {
             case 'left':
             if (this.x > 0) {
@@ -71,15 +74,22 @@ class Hero {
     }
     update() {
         for (let enemy of allEnemies) {
+            //check for collision/lose condition
             if (this.y === enemy.y && (enemy.x + enemy.step - 25 > this.x && enemy.x < this.x + this.step - 25)) {
+                alert('You Lost!');
                 reset();
             }
+        }
+        //win condition
+        if (this.y < 55) {
+            alert('You Win!');
+            reset();
         }
     }
 }
 
+//resets player position after win/lose condition
 function reset() {
-    alert('You Lost!');
     player.x = player.step * 2;
     player.y = (player.jump * 4) + 55;
 }
@@ -87,13 +97,10 @@ function reset() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
 const bug1 = new Enemy();
 const allEnemies = [];
 allEnemies.push(bug1);
 const player = new Hero();
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
