@@ -1,3 +1,5 @@
+// Created following tutorial by Matthew Cranford: https://matthewcranford.com/arcade-game-walkthrough-part-1-starter-code-breakdown/
+
 // Enemies our player must avoid
 
 const Enemy = function() {
